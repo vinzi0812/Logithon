@@ -13,7 +13,7 @@ export default function MiniCalendar(props) {
   const [value, onChange] = useState(new Date());
   return (
     <Card
-      align='center'
+      align='right'
       direction='column'
       w='100%'
       maxW='max-content'

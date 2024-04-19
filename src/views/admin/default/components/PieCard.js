@@ -86,6 +86,22 @@ export default function Conversion(props) {
             25%
           </Text>
         </Flex>
+        <VSeparator mx={{ base: "60px", xl: "60px", "2xl": "60px" }} />
+        <Flex direction='column' py='5px' me='10px'>
+          <Flex align='center'>
+            <Box h='8px' w='8px' bg='#6AD2FF' borderRadius='50%' me='4px' />
+            <Text
+              fontSize='xs'
+              color='secondaryGray.600'
+              fontWeight='700'
+              mb='5px'>
+              System
+            </Text>
+          </Flex>
+          <Text fontSize='lg' color={textColor} fontWeight='700'>
+            25%
+          </Text>
+        </Flex>
       </Card>
     </Card>
   );

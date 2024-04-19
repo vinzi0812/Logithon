@@ -27,7 +27,7 @@ export const barChartOptionsDailyTraffic = {
     theme: "dark",
   },
   xaxis: {
-    categories: ["00", "04", "08", "12", "14", "16", "18"],
+    categories: ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"],
     show: false,
     labels: {
       show: true,
@@ -107,15 +107,15 @@ export const barChartOptionsDailyTraffic = {
 
 export const barChartDataConsumption = [
   {
-    name: "PRODUCT A",
+    name: "AIR",
     data: [400, 370, 330, 390, 320, 350, 360, 320, 380],
   },
   {
-    name: "PRODUCT B",
+    name: "WATER",
     data: [400, 370, 330, 390, 320, 350, 360, 320, 380],
   },
   {
-    name: "PRODUCT C",
+    name: "ROAD",
     data: [400, 370, 330, 390, 320, 350, 360, 320, 380],
   },
 ];
@@ -191,7 +191,7 @@ export const barChartOptionsConsumption = {
   },
   fill: {
     type: "solid",
-    colors: ["#5E37FF", "#6AD2FF", "#E1E9F8"],
+    colors: ["#0037FF", "#6AD2FF", "#E1E9F8"],
   },
   legend: {
     show: false,
@@ -209,7 +209,7 @@ export const barChartOptionsConsumption = {
 };
 
 export const pieChartOptions = {
-  labels: ["Your files", "System", "Empty"],
+  labels: ["Sea", "Air", "Road"],
   colors: ["#4318FF", "#6AD2FF", "#EFF4FB"],
   chart: {
     width: "50px",
@@ -239,7 +239,7 @@ export const pieChartOptions = {
     },
   },
   fill: {
-    colors: ["#4318FF", "#6AD2FF", "#EFF4FB"],
+    colors: ["#4318FF", "#6AD2FF", "#EFF4FE"],
   },
   tooltip: {
     enabled: true,

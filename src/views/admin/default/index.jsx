@@ -38,11 +38,15 @@ import MiniCalendar from "components/calendar/MiniCalendar";
 import MiniStatistics from "components/card/MiniStatistics";
 import IconBox from "components/icons/IconBox";
 import React from "react";
+import Map from "components/maps/IntMap";
+
+
 import {
   MdAddTask,
   MdAttachMoney,
   MdBarChart,
   MdFileCopy,
+  MdLocationPin,
 } from "react-icons/md";
 import CheckTable from "views/admin/default/components/CheckTable";
 import ComplexTable from "views/admin/default/components/ComplexTable";
@@ -75,12 +79,12 @@ export default function UserReports() {
               h='56px'
               bg={boxBg}
               icon={
-                <Icon w='32px' h='32px' as={MdBarChart} color={brandColor} />
+                <Icon w='32px' h='32px' as={MdLocationPin} color={brandColor} />
               }
             />
           }
-          name='Earnings'
-          value='$350.4'
+          name='Origin'
+          value='Delhi'
         />
         <MiniStatistics
           startContent={
@@ -89,14 +93,14 @@ export default function UserReports() {
               h='56px'
               bg={boxBg}
               icon={
-                <Icon w='32px' h='32px' as={MdAttachMoney} color={brandColor} />
+                <Icon w='32px' h='32px' as={MdLocationPin} color={brandColor} />
               }
             />
           }
-          name='Spend this month'
-          value='$642.39'
+          name='Destination'
+          value='Mumbai'
         />
-        <MiniStatistics growth='+23%' name='Sales' value='$574.34' />
+        <MiniStatistics growth='Cost: $1000' name='Distance' value='1200 kms' />
         <MiniStatistics
           endContent={
             <Flex me='-16px' mt='10px'>
@@ -127,7 +131,7 @@ export default function UserReports() {
               icon={<Icon w='28px' h='28px' as={MdAddTask} color='white' />}
             />
           }
-          name='New Tasks'
+          name='New Routes'
           value='154'
         />
         <MiniStatistics
@@ -141,29 +145,35 @@ export default function UserReports() {
               }
             />
           }
-          name='Total Projects'
-          value='2935'
+          name='Total Routes'
+          value='235'
         />
       </SimpleGrid>
+
+      {/* <SimpleGrid>
+          <Map />
+      </SimpleGrid> */}
 
       <SimpleGrid columns={{ base: 1, md: 2, xl: 2 }} gap='20px' mb='20px'>
         <TotalSpent />
         <WeeklyRevenue />
       </SimpleGrid>
+
       <SimpleGrid columns={{ base: 1, md: 1, xl: 2 }} gap='20px' mb='20px'>
         <CheckTable columnsData={columnsDataCheck} tableData={tableDataCheck} />
-        <SimpleGrid columns={{ base: 1, md: 2, xl: 2 }} gap='20px'>
+        <SimpleGrid columns={{ base: 1, sm: 4 }} gap='20px'>
           <DailyTraffic />
           <PieCard />
         </SimpleGrid>
-      </SimpleGrid>
-      <SimpleGrid columns={{ base: 1, md: 1, xl: 2 }} gap='20px' mb='20px'>
-        <ComplexTable
+       </SimpleGrid>
+
+      <SimpleGrid columns={{ base: 1, md: 1, xl: 2 }} gap='20px' mb='70px'>
+        <ComplexTable //Routes
           columnsData={columnsDataComplex}
-          tableData={tableDataComplex}
-        />
-        <SimpleGrid columns={{ base: 1, md: 2, xl: 2 }} gap='20px'>
-          <Tasks />
+          tableData={tableDataComplex}/>
+
+        <SimpleGrid columns={{ base: 1, md: 2, xl: 2 }} gap='10px'>
+          <Tasks />   
           <MiniCalendar h='100%' minW='100%' selectRange={false} />
         </SimpleGrid>
       </SimpleGrid>
