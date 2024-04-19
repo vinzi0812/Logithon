@@ -39,9 +39,14 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'base.apps.BaseConfig',
+    'rest_framework',
+    'corsheaders',
 ]
 
+CORS_ORIGIN_ALLOW_ALL = True
+
 MIDDLEWARE = [
+    'corsheaders.middleware.CorsMiddleware',
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
@@ -80,8 +85,12 @@ WSGI_APPLICATION = 'DjangoServer.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
+        'ENGINE': 'djongo',
+        'CLIENT': {
+            'host' : 'mongodb+srv://shuklaruchir17:XYjk8nfgFuxF1meh@logithondb.dm9lwot.mongodb.net/?retryWrites=true&w=majority&appName=LogithonDB',
+            'name' : "LogithonDB",
+            'authMechanism' : 'SCRAM-SHA-1'
+        },
     }
 }
 
