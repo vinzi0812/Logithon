@@ -130,3 +130,5 @@ dist
 .pnp.*
 
 venv
+build
+__pycache__
