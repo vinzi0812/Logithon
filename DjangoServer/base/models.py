@@ -10,7 +10,7 @@ class CustomUser(AbstractUser):
     last_name = models.CharField(max_length=500)
     isManager = models.BooleanField(default=False)
     USERNAME_FIELD = 'username'
-    REQUIRED_FIELDS = ['first_name', 'last_name', 'type']
+    REQUIRED_FIELDS = ['first_name', 'last_name', 'email']
     objects = UserManager()
     
     def __str__(self) -> str:
