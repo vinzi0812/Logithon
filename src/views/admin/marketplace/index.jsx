@@ -28,7 +28,8 @@ import ColumnsTable from "views/admin/dataTables/components/ColumnsTable";
 import ComplexTable from "views/admin/dataTables/components/ComplexTable";
 import IconBox from "components/icons/IconBox";
 import SuggestionCard from "./components/SuggestionCard";
-
+import { useState, useEffect } from "react";
+import axios from "axios";
 import {
   columnsDataDevelopment,
   columnsDataCheck,
@@ -45,6 +46,23 @@ import RnD from "./components/RnD";
 import routeCard from "./components/routeCard";
 
 export default function Settings() {
+
+  const [routes, setRoutes] = useState([]);
+  const [loading, setLoading] = useState(true);
+  useEffect(() => {
+     const fetchData = async () => {
+      try{
+      const response = await axios.get("http://127.0.0.1:8000/api/routes");
+      setRoutes(response.data.routes);
+      setLoading(false);
+      } catch (e) {
+        console.log(e);
+        setLoading(false);
+      }
+    };
+    fetchData();
+  }, []);
+
   // Chakra Color Mode
   return (
     <Box pt={{ base: "130px", md: "80px", xl: "80px" }}>
@@ -56,13 +74,16 @@ export default function Settings() {
           columnsData={columnsDataDevelopment}
           tableData={tableDataDevelopment}
         /> */}
-        <SuggestionCard/>
-        <SuggestionCard/>
-        <SuggestionCard/>
-        <SuggestionCard/>
-        <SuggestionCard/>
-        <SuggestionCard/>
-        <SuggestionCard/>
+        <>
+        {routes.map((route, index) => (
+          <SuggestionCard key={index}
+          name={route.name}
+          duration={route.duration}
+          cost={route.cost}
+          carbonEmission={route.carbonEmission}
+           />
+        ))}
+        </>
         {/* <routeCard/> */}
       </SimpleGrid>
     </Box>

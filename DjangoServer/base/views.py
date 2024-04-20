@@ -30,7 +30,12 @@ class LoginView(APIView):
 class RouteView(APIView):
     def get(self, request):
         routes = Route.objects.all()
-        return Response({'message': 'Routes', 'routes': [model_to_dict(route) for route in routes]})
+        #convert this route to list
+        routes_list = []
+        for route in routes:
+            routes_list.append(model_to_dict(route))
+        print(routes_list)
+        return Response({'message': 'Routes', 'routes': routes_list}, status=status.HTTP_200_OK)
     
     def post(self, request):
         source = request.data.get('source')
@@ -55,17 +60,26 @@ class RouteChoice(APIView):
         route.save()
         return Response({'message': 'Route saved successfully'}, status=status.HTTP_201_CREATED)
 
-class Cost(APIView):
+class CostView(APIView):
     def get(self, request):
         #get all routes of past week
         #create a array of dates of past week
+        s = "T00:00:00,000+00:00"
         dates = []
         for i in range(7):
-            dates.append(time.strftime('%Y-%m-%d', time.localtime(time.time() - i * 86400)))
-        routes7 = Route.objects.filter(date__in=dates)
+            dates.append(time.strftime('%Y-%m-%d', time.localtime(time.time() - i * 86400))+s)
+        print(dates)
+        routes7=[]
+        for date in dates:
+            routes7.append(Route.objects.filter(date=date))
+        print(routes7)
+        dates=[]
+        routes14=[]
         for i in range(14):
-            dates.append(time.strftime('%Y-%m-%d', time.localtime(time.time() - i * 86400)))
-        routes14 = Route.objects.filter(date__in=dates)
+            dates.append(time.strftime('%Y-%m-%d', time.localtime(time.time() - i * 86400))+s)
+        for date in dates:
+            routes14.append(Route.objects.filter(date=date))
+        print(routes14)
         total_cost7, total_cost14 = 0, 0
         for route in routes7:
             total_cost7 += route.cost
@@ -75,7 +89,7 @@ class Cost(APIView):
         percentage_change = (diff / (total_cost14 - total_cost7)) * 100
         return Response({'message': 'Total cost of all routes', 'total_cost': total_cost7, 'change': percentage_change}, status=status.HTTP_200_OK)     
     
-class CarbonEmission(APIView):
+class CarbonEmissionView(APIView):
     def get(self, request):
         #get all routes of past week
         #create a array of dates of past week
@@ -95,7 +109,7 @@ class CarbonEmission(APIView):
         percentage_change = (diff / (total_carbon_emission14 - total_carbon_emission7)) * 100
         return Response({'message': 'Total carbon emission of all routes', 'total_carbon_emission': total_carbon_emission7, 'change': percentage_change}, status=status.HTTP_200_OK)
     
-class Duration(APIView):
+class DurationView(APIView):
     def get(self, request):
         #get all routes of past week
         #create a array of dates of past week

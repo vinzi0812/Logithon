@@ -3,7 +3,7 @@ import '@fortawesome/fontawesome-free/css/all.css';
 import avatarImage from "../../../../assets/img/avatars/stockman.jpg"
 import { background } from '@chakra-ui/system';
 import { ImFontSize } from 'react-icons/im';
-import { Flex, Icon, Image, Text, useColorModeValue } from "@chakra-ui/react";
+import { useColorModeValue } from "@chakra-ui/react";
 // import Timeline from '@mui/lab/Timeline';
 // import TimelineItem from '@mui/lab/TimelineItem';
 // import TimelineSeparator from '@mui/lab/TimelineSeparator';
@@ -16,9 +16,9 @@ import { Flex, Icon, Image, Text, useColorModeValue } from "@chakra-ui/react";
 // import HotelIcon from '@mui/icons-material/Hotel';
 // import RepeatIcon from '@mui/icons-material/Repeat';
 // import Typography from '@mui/material/Typography';
+import axios from "axios";
 
-
-const SuggestionCard = () => {
+const SuggestionCard = (props) => {
   const textColor = useColorModeValue("secondaryGray.900", "white");
   const borderColor = useColorModeValue("gray.200", "whiteAlpha.100");
   const iconColor = useColorModeValue("brand.400", "white");
@@ -33,19 +33,19 @@ const SuggestionCard = () => {
         <div className="text-details" style={styles.textDetails}>
           <div className="name-time" style={styles.nameTime}>
             <div className="name">
-              John Doe
+              {props.name}
             </div>
             <div className="time-taken" style={styles.timeTaken}>
-              <i className="far fa-clock" style={styles.icont}></i> 2 hours ago
+              <i className="far fa-clock" style={styles.icont}></i> {props.duration} hours 
             </div>
           </div>
           <div className="other-details" style={styles.otherDetails}>
             <div className="name-time" style={styles.nameTime}>
               <div className="cost">
-                <i className="fas fa-dollar-sign" style={styles.icont}></i> $ 50
+                <i className="fas fa-rupee-sign" style={styles.icont}></i> {props.cost}
               </div>
               <div className="carbon-emission" style={styles.timeTaken}>
-                <i className="fas fa-cloud" style={styles.icont}></i> 5kg CO2
+                <i className="fas fa-cloud" style={styles.icont}></i> {props.carbonEmission} tonn CO2
               </div>
             </div>
             {/* <Timeline className={classes.timeline} align="alternate">
@@ -110,6 +110,20 @@ const SuggestionCard = () => {
                 </TimelineContent>
               </TimelineItem>
             </Timeline> */}
+          </div>
+          <div className="other-details" style={styles.otherDetails}>
+            <div className="name-time" style={styles.nameTime}>
+              <div className="cost">
+                <div className="name">
+                  {props.source}
+                </div>
+              </div>
+              <div className="carbon-emission" style={styles.timeTaken}>
+              <div className="name">
+                  {props.destination}
+                </div>
+              </div>
+            </div>
           </div>
         </div>
       </div>
@@ -255,6 +269,8 @@ const styles = {
     borderRadius: '5px',
     backgroundColor: '#iconColor',
     padding: '0px',
+    marginBottom:'10px',  
+    marginTop:'10px',  
   },
 };
 

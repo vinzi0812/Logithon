@@ -91,6 +91,7 @@ def get_coordinates(location, api_key):
         "key": api_key
     }
     response = requests.get(url, params=query)
+    
     data = response.json()
     if data['hits']:
         return data['hits'][0]['point']
@@ -115,6 +116,7 @@ def get_routes(source_coords, destination_coords, api_key):
     # Get time-optimized routes
     body["optimize"] = "time"
     response = requests.post(url, headers=headers, json=body, params={"key": api_key})
+    print(response.json())
     time_optimized_routes = response.json()["paths"]
 
     # Get distance-optimized routes
@@ -129,12 +131,9 @@ def get_routes(source_coords, destination_coords, api_key):
 
     return time_optimized_routes, distance_optimized_routes, consumption_optimized_routes
 
-def main():
+def landmain(source, destination):
     # Replace 'YOUR_API_KEY_HERE' with your actual API key
     api_key = '7bf48df5-2e24-433b-9690-49accd446cc4'
-
-    source = input("Enter the source location: ")
-    destination = input("Enter the destination location: ")
 
     source_coords = get_coordinates(source, api_key)
     destination_coords = get_coordinates(destination, api_key)

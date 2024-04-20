@@ -70,10 +70,10 @@ export default function Conversion(props) {
             63%
           </Text>
         </Flex>
-        <VSeparator mx={{ base: "60px", xl: "60px", "2xl": "15px" }} />
+        <VSeparator mx={{ base: "60px", xl: "60px", "2xl": "40px" }} />
         <Flex direction='column' py='5px' me='10px'>
           <Flex align='center'>
-            <Box h='8px' w='8px' bg='#6AD2FF' borderRadius='50%' me='4px' />
+            <Box h='8px' w='8px' bg='#6AD2FF' borderRadius='50%' me='25px' />
             <Text
               fontSize='xs'
               color='secondaryGray.600'
@@ -86,10 +86,10 @@ export default function Conversion(props) {
             25%
           </Text>
         </Flex>
-        <VSeparator mx={{ base: "60px", xl: "60px", "2xl": "15px" }} />
+        <VSeparator mx={{ base: "60px", xl: "60px", "2xl": "40px" }} />
         <Flex direction='column' py='5px' me='10px'>
           <Flex align='center'>
-            <Box h='8px' w='8px' bg='#6AD2FF' borderRadius='50%' me='4px' />
+            <Box h='8px' w='8px' bg='#6AD2FF' borderRadius='50%' me='25px' />
             <Text
               fontSize='xs'
               color='secondaryGray.600'
@@ -98,7 +98,7 @@ export default function Conversion(props) {
               Road
             </Text>
           </Flex>
-          <Text fontSize='lg' color={textColor} fontWeight='700'>
+          <Text fontSize='lg' color={textColor} fontWeight='1700'>
             25%
           </Text>
         </Flex>

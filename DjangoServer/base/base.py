@@ -1,16 +1,14 @@
 import google.generativeai as genai
 
 def get_user_input():
-    source = input("Enter the source location: ")
-    destination = input("Enter the destination location: ")
-    mode_of_travel = input("Enter the preferred mode of travel (Air, Sea, or Road): ").lower()
+    mode_of_travel = "air"
     is_transhipment = input("Is this a transhipment? (Yes/No): ").lower()
     stopages = []
     if is_transhipment == "yes":
         num_stopages = int(input("Enter the number of stopages: "))
         for i in range(num_stopages):
             stopages.append(input(f"Enter stopage {i+1}: "))
-    return source, destination, mode_of_travel, is_transhipment, stopages
+    return mode_of_travel, is_transhipment, stopages
 
 def create_gemini_prompt(source, destination, mode_of_travel, is_transhipment, stopages):
     prompt = f"Find the 5 best routes for shipping from {source} to {destination} by {mode_of_travel} mode, optimized for time, cost, and fuel consumption. "
@@ -45,12 +43,12 @@ def generate_gemini_prompt(prompt):
     gemini_prompt = convo.last.text
     return gemini_prompt
 
-def main():
-    source, destination, mode_of_travel, is_transhipment, stopages = get_user_input()
+def airmain(source, destination):
+    mode_of_travel, is_transhipment, stopages = get_user_input()
     initial_prompt = create_gemini_prompt(source, destination, mode_of_travel, is_transhipment, stopages)
     gemini_prompt = generate_gemini_prompt(initial_prompt)
     print("\nGemini API Prompt:")
     print(gemini_prompt)
 
 if __name__ == "__main__":
-    main()
+    airmain(source, destination)

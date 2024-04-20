@@ -68,8 +68,27 @@ import {
 } from "views/admin/default/variables/columnsData";
 import tableDataCheck from "views/admin/default/variables/tableDataCheck.json";
 import tableDataComplex from "views/admin/default/variables/tableDataComplex.json";
-
+import axios from 'axios';
+import { useEffect, useState } from "react";
 export default function UserReports() {
+  const [cost, setCost] = useState();
+  const [duration, setDuration] = useState();
+  const [emission, setEmission] = useState();
+  useEffect(() => {
+    const fetchData = async () => {
+      try{
+        const response1 = await axios.get("http://127.0.0.1:8000/api/cost");
+        const response2 = await axios.get("http://127.0.0.1:8000/api/duration");
+        const response3 = await axios.get("http://127.0.0.1:8000/api/emission");
+        setCost(response1.data.cost);
+        setDuration(response2.data.duration);
+        setEmission(response3.data.emission);
+      } catch (e) {
+        console.log(e);
+      }
+    };
+    fetchData();
+  }, []);
   // Chakra Color Mode
   const brandColor = useColorModeValue("brand.500", "white");
   const boxBg = useColorModeValue("secondaryGray.300", "whiteAlpha.100");
@@ -91,7 +110,7 @@ export default function UserReports() {
             />
           }
           name='Total Cost'
-          value='$138.24K'
+          value={cost}
         /> 
         <MiniStatistics
           startContent={
@@ -105,9 +124,9 @@ export default function UserReports() {
             />
           }
           name='Time Duration'
-          value='7h 38m'
+          value={duration} hours
         />
-        <MiniStatistics growth='Increased' name='CO2 Emissions' value='5g' />
+        <MiniStatistics growth='Increased' name='CO2 Emissions' value={emission} />
         {/* <MiniStatistics
           endContent={
             <Flex me='-16px' mt='10px'>

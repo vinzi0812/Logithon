@@ -222,10 +222,11 @@ def get_coordinates(location):
     url = f"https://api.searoutes.com/geocoding/v2/all?query={location}"
     headers = {
         "accept": "application/json",
-        "x-api-key": "p1u19OkokB4cTpiWyGtyd9aPziSvF1XS8BbXl2X5"
+        "x-api-key": "Geb5fiIf743SUzpAjmRF88Z2Kn8z7SYV35DqjgHh"
     }
     response = requests.get(url, headers=headers)
     data = response.json()
+    print(data)
     return data['features'][0]['geometry']['coordinates']
 
 def get_route_details(source_coords, destination_coords):

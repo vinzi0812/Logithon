@@ -13,10 +13,18 @@ export function SidebarBrand() {
 
   return (
     <Flex align='center' direction='column'>
-      <HorizonLogo h='26px' w='175px' my='32px' color={logoColor} />
+      <h2>OPTIMOROUTE</h2>
+      {/* <HorizonLogo h='26px' w='175px' my='32px' color={logoColor} /> */}
       <HSeparator mb='20px' />
     </Flex>
   );
 }
+
+const style = {
+    h2:{
+      size: '95px',
+      padding: '25px',
+    },
+};
 
 export default SidebarBrand;
