@@ -3,56 +3,119 @@ import '@fortawesome/fontawesome-free/css/all.css';
 import avatarImage from "../../../../assets/img/avatars/stockman.jpg"
 import { background } from '@chakra-ui/system';
 import { ImFontSize } from 'react-icons/im';
-
+import { Flex, Icon, Image, Text, useColorModeValue } from "@chakra-ui/react";
+// import Timeline from '@mui/lab/Timeline';
+// import TimelineItem from '@mui/lab/TimelineItem';
+// import TimelineSeparator from '@mui/lab/TimelineSeparator';
+// import TimelineConnector from '@mui/lab/TimelineConnector';
+// import TimelineContent from '@mui/lab/TimelineContent';
+// import TimelineOppositeContent from '@mui/lab/TimelineOppositeContent';
+// import TimelineDot from '@mui/lab/TimelineDot';
+// import FastfoodIcon from '@mui/icons-material/Fastfood';
+// import LaptopMacIcon from '@mui/icons-material/LaptopMac';
+// import HotelIcon from '@mui/icons-material/Hotel';
+// import RepeatIcon from '@mui/icons-material/Repeat';
+// import Typography from '@mui/material/Typography';
 
 
 const SuggestionCard = () => {
-    const container = styles.container;
+  const textColor = useColorModeValue("secondaryGray.900", "white");
+  const borderColor = useColorModeValue("gray.200", "whiteAlpha.100");
+  const iconColor = useColorModeValue("brand.400", "white");
+  const container = styles.container;
   return (
+    <div style={styles.box}>
     <div className="card" style={styles.card}>
-        <div className="details" style={styles.details}>
-            <div className="profile" style={styles.profile}>
-                <img src={avatarImage} alt="Profile" style={styles.profileImg} />
-            </div>
-            <div className="text-details" style={styles.textDetails}>
-                <div className="name-time" style={styles.nameTime}>
-                    <div className="name">
-                        John Doe
-                    </div>
-                    <div className="time-taken" style={styles.timeTaken}>
-                        <i className="far fa-clock" style={styles.icont}></i> 2 hours ago
-                    </div>
-                </div>
-                <div className="other-details" style={styles.otherDetails}>
-                    <div className="name-time" style={styles.nameTime}>
-                        <div className="cost">
-                            <i className="fas fa-dollar-sign" style={styles.icont}></i> $ 50
-                        </div>
-                        <div className="carbon-emission" style={styles.timeTaken}>
-                            <i className="fas fa-cloud" style={styles.icont}></i> 5kg CO2
-                        </div>
-                    </div>
-                    <div className="source-destination" style={styles.detailItem}>
-                        <i className="fas fa-map-marker-alt" style={styles.icont} marginRight = '50px'></i> Source: Location A -----<i className="fas fa-map-marker-alt" marginRight='50px' style={styles.icon}></i> Destination: Location B
-                    </div>
-                </div>
-            </div>  
+      <div className="details" style={styles.details}>
+        <div className="profile" style={styles.profile}>
+          <img src={avatarImage} alt="Profile" style={styles.profileImg} />
         </div>
-        
-        <div style={styles.path}>
-            <div style={styles.iconContainer}>
-                <div style={styles.icon}><i className="fas fa-car"></i></div>
-                <div style={styles.line}></div>
+        <div className="text-details" style={styles.textDetails}>
+          <div className="name-time" style={styles.nameTime}>
+            <div className="name">
+              John Doe
             </div>
-            <div style={styles.iconContainer}>
-                <div style={styles.icon}><i className="fas fa-train"></i></div>
-                <div style={styles.line}></div>
+            <div className="time-taken" style={styles.timeTaken}>
+              <i className="far fa-clock" style={styles.icont}></i> 2 hours ago
             </div>
-            <div style={styles.iconContainer}>
-                <div style={styles.icon}><i className="fas fa-plane"></i></div>
+          </div>
+          <div className="other-details" style={styles.otherDetails}>
+            <div className="name-time" style={styles.nameTime}>
+              <div className="cost">
+                <i className="fas fa-dollar-sign" style={styles.icont}></i> $ 50
+              </div>
+              <div className="carbon-emission" style={styles.timeTaken}>
+                <i className="fas fa-cloud" style={styles.icont}></i> 5kg CO2
+              </div>
             </div>
+            {/* <Timeline className={classes.timeline} align="alternate">
+              <TimelineItem>
+                <TimelineSeparator>
+                  <CheckCircleOutlineIcon
+                    color="primary"
+                    className={classes.timelineIcon}
+                  />
+                  <TimelineConnector />
+                </TimelineSeparator>
+                <TimelineContent className={classes.timelineContentContainer}>
+                  <Paper className={classes.timelineContent}>
+                    <Typography>Eat</Typography>
+                  </Paper>
+                </TimelineContent>
+              </TimelineItem>
+              <TimelineItem>
+                <TimelineSeparator>
+                  <PauseCircleFilledIcon
+                    color="primary"
+                    className={classes.timelineIcon}
+                  />
+                  <TimelineConnector />
+                </TimelineSeparator>
+                <TimelineContent className={classes.timelineContentContainer}>
+                  <Paper className={classes.timelineContent}>
+                    <Typography>Code</Typography>
+                  </Paper>
+                </TimelineContent>
+              </TimelineItem>
+              <TimelineItem>
+                <TimelineSeparator>
+                  <CachedIcon color="primary" className={classes.timelineIcon} />
+                  <TimelineConnector />
+                </TimelineSeparator>
+                <TimelineContent className={classes.timelineContentContainer}>
+                  <Paper className={classes.timelineContent}>
+                    <Typography>Sleep</Typography>
+                  </Paper>
+                </TimelineContent>
+              </TimelineItem>
+              <TimelineItem>
+                <TimelineSeparator>
+                  <CachedIcon color="primary" className={classes.timelineIcon} />
+                  <TimelineConnector />
+                </TimelineSeparator>
+                <TimelineContent className={classes.timelineContentContainer}>
+                  <Paper className={classes.timelineContent}>
+                    <Typography>Repeat</Typography>
+                  </Paper>
+                </TimelineContent>
+              </TimelineItem>
+              <TimelineItem>
+                <TimelineSeparator>
+                  <ErrorIcon color="primary" className={classes.timelineIcon} />
+                </TimelineSeparator>
+                <TimelineContent className={classes.timelineContentContainer}>
+                  <Paper className={classes.timelineContent}>
+                    <Typography>Sleep</Typography>
+                  </Paper>
+                </TimelineContent>
+              </TimelineItem>
+            </Timeline> */}
+          </div>
         </div>
-        {/* <div style={container}>
+      </div>
+      </div>
+
+      {/* <div style={container}>
         <div style={styles.hr} />
         <div style={styles.or}>or</div>
         </div> */}
@@ -70,7 +133,7 @@ const styles = {
     borderRadius: '20px',
     padding: '20px',
     margin: '10px',
-    background: '#111C44',
+    background: 'borderColor',
   },
   details: {
     display: 'flex',
@@ -97,17 +160,13 @@ const styles = {
   },
   otherDetails: {
     marginTop: '10px',
-    
+
   },
   detailItem: {
     marginBottom: '5px',
   },
   path: {
     flex: 1,
-    display: 'flex',
-    alignItems: 'center',
-  },
-  timeline: {
     display: 'flex',
     alignItems: 'center',
   },
@@ -155,7 +214,48 @@ const styles = {
     alignSelf: 'center',
     backgroundColor: '#FFFFFF',
   },
-
+  timeline: {
+    listStyle: 'none',
+    padding: '20px',
+    position: 'relative',
+  },
+  button: {
+    position: 'absolute',
+    top: 'auto',
+    bottom: '30px',
+  },
+  timelineBadge: {
+    color: 'dodgerblue',
+    width: '100px',
+    height: '100px',
+    lineHeight: '24px',
+    fontSize: '18px',
+    textAlign: 'center',
+    position: 'absolute',
+    top: '18px',
+    left: '50%',
+    marginLeft: '-25px',
+    backgroundColor: 'white',
+    border: '3px solid dodgerblue',
+    zIndex: '100',
+    borderRadius: '50%',
+  },
+  lowerText: {
+    textTransform: 'uppercase',
+    color: 'grey',
+    fontSize: '14px',
+    fontWeight: '600',
+    position: 'absolute',
+    left: '2em',
+    bottom: '-2em',
+  },
+  box: {
+    width: '100%',
+    border: '1px solid #ccc',
+    borderRadius: '5px',
+    backgroundColor: '#iconColor',
+    padding: '0px',
+  },
 };
 
 export default SuggestionCard;

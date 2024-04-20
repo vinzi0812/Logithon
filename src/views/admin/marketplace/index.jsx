@@ -42,6 +42,7 @@ import tableDataComplex from "views/admin/dataTables/variables/tableDataComplex.
 import React from "react";
 import { TriangleDownIcon } from "@chakra-ui/icons";
 import RnD from "./components/RnD";
+import routeCard from "./components/routeCard";
 
 export default function Settings() {
   // Chakra Color Mode
@@ -56,7 +57,13 @@ export default function Settings() {
           tableData={tableDataDevelopment}
         /> */}
         <SuggestionCard/>
-        <RnD/>
+        <SuggestionCard/>
+        <SuggestionCard/>
+        <SuggestionCard/>
+        <SuggestionCard/>
+        <SuggestionCard/>
+        <SuggestionCard/>
+        {/* <routeCard/> */}
       </SimpleGrid>
     </Box>
   );

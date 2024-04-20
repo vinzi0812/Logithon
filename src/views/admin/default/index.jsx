@@ -47,6 +47,13 @@ import {
   MdBarChart,
   MdFileCopy,
   MdLocationPin,
+  MdMoney,
+  MdMoreTime,
+  MdOutlineCurrencyPound,
+  MdOutlineLockClock,
+  MdOutlineMoney,
+  MdOutlineSyncLock,
+  MdOutlineWatch,
 } from "react-icons/md";
 import CheckTable from "views/admin/default/components/CheckTable";
 import ComplexTable from "views/admin/default/components/ComplexTable";
@@ -79,13 +86,13 @@ export default function UserReports() {
               h='56px'
               bg={boxBg}
               icon={
-                <Icon w='32px' h='32px' as={MdLocationPin} color={brandColor} />
+                <Icon w='32px' h='32px' as={MdOutlineCurrencyPound} color={brandColor} />
               }
             />
           }
-          name='Origin'
-          value='Delhi'
-        />
+          name='Total Cost'
+          value='$138.24K'
+        /> 
         <MiniStatistics
           startContent={
             <IconBox
@@ -93,15 +100,15 @@ export default function UserReports() {
               h='56px'
               bg={boxBg}
               icon={
-                <Icon w='32px' h='32px' as={MdLocationPin} color={brandColor} />
+                <Icon w='32px' h='32px' as={MdMoreTime} color={brandColor} />
               }
             />
           }
-          name='Destination'
-          value='Mumbai'
+          name='Time Duration'
+          value='7h 38m'
         />
-        <MiniStatistics growth='Cost: $1000' name='Distance' value='1200 kms' />
-        <MiniStatistics
+        <MiniStatistics growth='Increased' name='CO2 Emissions' value='5g' />
+        {/* <MiniStatistics
           endContent={
             <Flex me='-16px' mt='10px'>
               <FormLabel htmlFor='balance'>
@@ -121,8 +128,8 @@ export default function UserReports() {
           }
           name='Your balance'
           value='$1,000'
-        />
-        <MiniStatistics
+        /> */}
+        {/* <MiniStatistics
           startContent={
             <IconBox
               w='56px'
@@ -147,36 +154,36 @@ export default function UserReports() {
           }
           name='Total Routes'
           value='235'
-        />
+        /> */}
       </SimpleGrid>
 
       {/* <SimpleGrid>
           <Map />
       </SimpleGrid> */}
 
-      <SimpleGrid columns={{ base: 1, md: 2, xl: 2 }} gap='20px' mb='20px'>
+      <SimpleGrid columns={{ base: 2, md: 1, xl: 2 }} gap='20px' mb='20px'>
         <TotalSpent />
         <WeeklyRevenue />
       </SimpleGrid>
 
       <SimpleGrid columns={{ base: 1, md: 1, xl: 2 }} gap='20px' mb='20px'>
         <CheckTable columnsData={columnsDataCheck} tableData={tableDataCheck} />
-        <SimpleGrid columns={{ base: 1, sm: 4 }} gap='20px'>
-          <DailyTraffic />
+        <SimpleGrid columns={{ base: 1, sm: 1}} gap='20px'>
           <PieCard />
+          {/* <DailyTraffic /> */}
         </SimpleGrid>
        </SimpleGrid>
 
-      <SimpleGrid columns={{ base: 1, md: 1, xl: 2 }} gap='20px' mb='70px'>
+      {/* <SimpleGrid columns={{ base: 1, md: 1, xl: 2 }} gap='20px' mb='70px'>
         <ComplexTable //Routes
           columnsData={columnsDataComplex}
           tableData={tableDataComplex}/>
 
-        <SimpleGrid columns={{ base: 1, md: 2, xl: 2 }} gap='10px'>
+        <SimpleGrid columns={{ base: 1, sm: 1}} gap='10px'>
           <Tasks />   
           <MiniCalendar h='100%' minW='100%' selectRange={false} />
         </SimpleGrid>
-      </SimpleGrid>
+      </SimpleGrid> */}
     </Box>
   );
 }

@@ -49,7 +49,7 @@ export default function ColumnsTable(props) {
     prepareRow,
     initialState,
   } = tableInstance;
-  initialState.pageSize = 5;
+  initialState.pageSize = 3;
 
   const textColor = useColorModeValue("secondaryGray.900", "white");
   const borderColor = useColorModeValue("gray.200", "whiteAlpha.100");
@@ -57,19 +57,21 @@ export default function ColumnsTable(props) {
     <Card
       direction='column'
       w='100%'
-      px='0px'
-      overflowX={{ sm: "scroll", lg: "hidden" }}>
-      <Flex px='25px' justify='space-between' mb='10px' align='center'>
+      px='20px'
+      overflowX={{ sm: "scroll", lg: "hidden" }}
+      mb = '20px'>
+      <Flex px='20px' justify='space-between' mb='5px' align='center'>
         <Text
           color={textColor}
-          fontSize='22px'
+          fontSize='20px'
           fontWeight='700'
-          lineHeight='100%'>
+          lineHeight='100%'
+          mb = '10px'>
           Complex Routes
         </Text>
         <Menu />
       </Flex>
-      <Table {...getTableProps()} variant='simple' color='gray.500' mb='24px'>
+      <Table {...getTableProps()} variant='simple' color='gray.500' mb='10px'>
         <Thead>
           {headerGroups.map((headerGroup, index) => (
             <Tr {...headerGroup.getHeaderGroupProps()} key={index}>
@@ -78,11 +80,12 @@ export default function ColumnsTable(props) {
                   {...column.getHeaderProps(column.getSortByToggleProps())}
                   pe='10px'
                   key={index}
-                  borderColor={borderColor}>
+                  borderColor={borderColor}
+                  mb = '10px'>
                   <Flex
                     justify='space-between'
                     align='center'
-                    fontSize={{ sm: "10px", lg: "12px" }}
+                    fontSize={{ sm: "10px", lg: "13px" }}
                     color='gray.400'>
                     {column.render("Header")}
                   </Flex>
@@ -148,7 +151,7 @@ export default function ColumnsTable(props) {
                           variant='table'
                           colorScheme='brandScheme'
                           h='8px'
-                          w='108px'
+                          w='50px'
                           value={cell.value}
                         />
                       </Flex>
@@ -158,10 +161,10 @@ export default function ColumnsTable(props) {
                     <Td
                       {...cell.getCellProps()}
                       key={index}
-                      fontSize={{ sm: "14px" }}
+                      fontSize={{ sm: "10px" }}
                       maxH='30px !important'
                       py='8px'
-                      minW={{ sm: "150px", md: "200px", lg: "auto" }}
+                      minW={{ sm: "100px", md: "150px", lg: "auto" }}
                       borderColor='transparent'>
                       {data}
                     </Td>
