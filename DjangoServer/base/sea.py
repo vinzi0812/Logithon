@@ -227,7 +227,8 @@ def get_coordinates(location):
     response = requests.get(url, headers=headers)
     data = response.json()
     print(data)
-    return data['features'][0]['geometry']['coordinates']
+    if 'features' in data.keys() :
+        return data['features'][0]['geometry']['coordinates']
 
 def get_route_details(source_coords, destination_coords):
     url = f"https://api.searoutes.com/route/v2/sea/{source_coords[0]},{source_coords[1]};{destination_coords[0]},{destination_coords[1]}/plan"
@@ -237,7 +238,7 @@ def get_route_details(source_coords, destination_coords):
     }
     
     # Retry the request up to 3 times with a 5-second delay
-    for i in range(3):
+    for i in range(1):
         response = requests.get(url, headers=headers)
         if response.status_code == 202:
             # The route is being calculated, you can poll the API for the result

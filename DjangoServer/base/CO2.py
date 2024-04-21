@@ -15,11 +15,11 @@ def get_co2(sc,dc, api_key):
     for url in urls:
         response = requests.get(url, params=query, headers=headers)
         data = response.json()
-        print(data["co2e"])
-        if data["co2e"] != None:
+        #print(data["co2e"])
+        # if data["total"] != None:
+        #     answer.append(data["total"])
             
-            answer.append(data["co2e"])
-    return answer
+    return data
 
 def get_coordinates(location, api_key):
     url = "https://graphhopper.com/api/1/geocode"
@@ -50,5 +50,5 @@ dc = list(destination_coords.values())
 print(f"Coordinates of the source ({source}): {source_coords}")
 print(f"Coordinates of the destination ({destination}): {destination_coords}")
 
-routes = get_co2(sc, dc, CO2_api_key)
-print(routes)
+print(get_co2(sc, dc, CO2_api_key))
+#print(routes)

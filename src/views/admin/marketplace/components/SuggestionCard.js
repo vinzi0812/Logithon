@@ -1,7 +1,7 @@
 import React from 'react';
 import '@fortawesome/fontawesome-free/css/all.css';
 import avatarImage from "../../../../assets/img/avatars/stockman.jpg"
-import { background } from '@chakra-ui/system';
+import { background, color } from '@chakra-ui/system';
 import { ImFontSize } from 'react-icons/im';
 import { useColorModeValue } from "@chakra-ui/react";
 import axios from "axios";
@@ -37,7 +37,7 @@ const SuggestionCard = (props) => {
                 <i className="fas fa-rupee-sign" style={styles.icont}></i> {props.cost}
               </div>
               <div className="carbon-emission" style={styles.timeTaken}>
-                <i className="fas fa-cloud" style={styles.icont}></i> {props.carbon_emission} tonn CO2
+                <i className="fas fa-cloud" style={styles.icont}></i> {props.carbonEmission} CO2
               </div>
             </div>
             {/* <Timeline className={classes.timeline} align="alternate">
@@ -110,13 +110,19 @@ const SuggestionCard = (props) => {
                   {props.source}
                 </div>
               </div>
+              <div className="name">
+                  {props.mode}
+              </div>
               <div className="carbon-emission" style={styles.timeTaken}>
               <div className="name">
                   {props.destination}
                 </div>
               </div>
-            </div>
+            
+              </div>
+              
           </div>
+          <div style={styles.or}></div>
           {/* <HorizontalDemo/> */}
         </div>
       </div>
@@ -210,9 +216,8 @@ const styles = {
     backgroundColor: '#FFFFFF',
   },
   hr: {
-    position: 'relative',
-    top: 11,
-    borderBottom: '1px solid #000000',
+    position: 'center',
+    borderTop: '1px solid red',
   },
   or: {
     width: 30,
@@ -221,6 +226,7 @@ const styles = {
     alignSelf: 'center',
     backgroundColor: '#FFFFFF',
   },
+
   timeline: {
     listStyle: 'none',
     padding: '20px',

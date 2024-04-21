@@ -110,7 +110,7 @@ export default function UserReports() {
             />
           }
           name='Total Cost'
-          value={cost}
+          value='Rs. 1700'
         /> 
         <MiniStatistics
           startContent={
@@ -124,7 +124,7 @@ export default function UserReports() {
             />
           }
           name='Time Duration'
-          value={duration} hours
+          value='30 hours'
         />
         <MiniStatistics growth='Increased' name='CO2 Emissions' value={emission} />
         {/* <MiniStatistics

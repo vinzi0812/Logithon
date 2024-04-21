@@ -116,8 +116,11 @@ def get_routes(source_coords, destination_coords, api_key):
     # Get time-optimized routes
     body["optimize"] = "time"
     response = requests.post(url, headers=headers, json=body, params={"key": api_key})
-    print(response.json())
-    time_optimized_routes = response.json()["paths"]
+    # print(response.json())
+    if "paths" in response.json():
+        time_optimized_routes = response.json()["paths"]
+    else:
+        time_optimized_routes = []
 
     # Get distance-optimized routes
     body["optimize"] = "distance"
@@ -156,4 +159,4 @@ def landmain(source, destination):
         print("Could not find coordinates for one or both locations.")
 
 if __name__ == "__main__":
-    main()
+    landmain("Mumbai", "Delhi")

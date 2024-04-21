@@ -90,10 +90,21 @@ const AddRoute = () => {
           </div>
         ) : (
           <div className={styles.bigBox}>
-          <SuggestionCard />
-          <SuggestionCard />
-          <SuggestionCard />
-          <SuggestionCard />
+          <SuggestionCard 
+          name='Ruchir'
+          duration='20 hours'
+          cost='3000  (direct)'
+          carbonEmission=""/>
+          <SuggestionCard 
+          name='Ruchir'
+          duration='20 hours '
+          cost='4000  (via Nagpur)'
+          carbonEmission=""/>
+          <SuggestionCard 
+          name='Ruchir'
+          duration='30 hours'
+          cost='5000  (via Jaipur)'
+          carbonEmission=""/>
           </div>
         )}
       </div>
@@ -115,7 +126,7 @@ const styles = {
     width: '100%',
     padding: '10px',
     marginTop: '20px',
-    backgroundColor: 'iconColor'
+    backgroundColor: 'iconclor'
   },
   innerContainer:{
     width: '30%',
@@ -126,7 +137,7 @@ const styles = {
     maxWidth: '1000px',
     border: '1px solid #ccc',
     borderRadius: '5px',
-    backgroundColor: '#iconColor',
+    backgroundColor: 'iconColor',
     padding: '20px',
     
   },

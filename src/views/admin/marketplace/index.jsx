@@ -80,7 +80,10 @@ export default function Settings() {
           name={route.name}
           duration={route.duration}
           cost={route.cost}
-          carbonEmission={route.carbonEmission}
+          carbonEmission={route.carbon_emission}
+          source = {route.source}
+          destination = {route.destination}
+          mode = {route.mode_of_transport}
            />
         ))}
         </>

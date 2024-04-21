@@ -51,4 +51,4 @@ def airmain(source, destination):
     print(gemini_prompt)
 
 if __name__ == "__main__":
-    airmain(source, destination)
+    airmain("New York", "Mumbai")

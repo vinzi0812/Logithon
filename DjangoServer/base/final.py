@@ -32,12 +32,14 @@ def get_routes(source, destination, api_key):
     convo.send_message(prompt)
     paths = convo.last.text
     paths = paths.replace('[', '').replace(']', '').split("\n")
+    print(paths)
     arr = []
     for path in paths:
-        arr.append(path.split(","))
-        if path[2] == "sea":
+        path = path.split(",")
+        arr.append(path)
+        if path[2].lower() == "sea":
             get_route_details(path[0], path[1])
-        elif path[2] == "air":
+        elif path[2].lower() == "air":
             airmain(path[0], path[1])
         else:
             landmain(path[0], path[1])
