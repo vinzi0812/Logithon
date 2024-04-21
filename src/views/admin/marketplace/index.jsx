@@ -43,7 +43,7 @@ import tableDataComplex from "views/admin/dataTables/variables/tableDataComplex.
 import React from "react";
 import { TriangleDownIcon } from "@chakra-ui/icons";
 import RnD from "./components/RnD";
-import routeCard from "./components/routeCard";
+
 
 export default function Settings() {
 
@@ -84,7 +84,7 @@ export default function Settings() {
            />
         ))}
         </>
-        {/* <routeCard/> */}
+        
       </SimpleGrid>
     </Box>
   );

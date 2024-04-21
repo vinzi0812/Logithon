@@ -4,19 +4,11 @@ import avatarImage from "../../../../assets/img/avatars/stockman.jpg"
 import { background } from '@chakra-ui/system';
 import { ImFontSize } from 'react-icons/im';
 import { useColorModeValue } from "@chakra-ui/react";
-// import Timeline from '@mui/lab/Timeline';
-// import TimelineItem from '@mui/lab/TimelineItem';
-// import TimelineSeparator from '@mui/lab/TimelineSeparator';
-// import TimelineConnector from '@mui/lab/TimelineConnector';
-// import TimelineContent from '@mui/lab/TimelineContent';
-// import TimelineOppositeContent from '@mui/lab/TimelineOppositeContent';
-// import TimelineDot from '@mui/lab/TimelineDot';
-// import FastfoodIcon from '@mui/icons-material/Fastfood';
-// import LaptopMacIcon from '@mui/icons-material/LaptopMac';
-// import HotelIcon from '@mui/icons-material/Hotel';
-// import RepeatIcon from '@mui/icons-material/Repeat';
-// import Typography from '@mui/material/Typography';
 import axios from "axios";
+import 'primereact/resources/primereact.min.css';
+import 'primeicons/primeicons.css';
+import { Timeline } from 'primereact/timeline';
+import HorizontalDemo from "./HorizontalDemo";        
 
 const SuggestionCard = (props) => {
   const textColor = useColorModeValue("secondaryGray.900", "white");
@@ -45,7 +37,7 @@ const SuggestionCard = (props) => {
                 <i className="fas fa-rupee-sign" style={styles.icont}></i> {props.cost}
               </div>
               <div className="carbon-emission" style={styles.timeTaken}>
-                <i className="fas fa-cloud" style={styles.icont}></i> {props.carbonEmission} tonn CO2
+                <i className="fas fa-cloud" style={styles.icont}></i> {props.carbon_emission} tonn CO2
               </div>
             </div>
             {/* <Timeline className={classes.timeline} align="alternate">
@@ -111,7 +103,7 @@ const SuggestionCard = (props) => {
               </TimelineItem>
             </Timeline> */}
           </div>
-          <div className="other-details" style={styles.otherDetails}>
+          <div className="text-details" style={styles.textDetails}>
             <div className="name-time" style={styles.nameTime}>
               <div className="cost">
                 <div className="name">
@@ -125,6 +117,7 @@ const SuggestionCard = (props) => {
               </div>
             </div>
           </div>
+          {/* <HorizontalDemo/> */}
         </div>
       </div>
       </div>
