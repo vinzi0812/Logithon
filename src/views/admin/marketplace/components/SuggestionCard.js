@@ -34,10 +34,14 @@ const SuggestionCard = (props) => {
           <div className="other-details" style={styles.otherDetails}>
             <div className="name-time" style={styles.nameTime}>
               <div className="cost">
+
                 <i className="fas fa-rupee-sign" style={styles.icont}></i> {props.cost}
+
               </div>
               <div className="carbon-emission" style={styles.timeTaken}>
+
                 <i className="fas fa-cloud" style={styles.icont}></i> {props.carbonEmission} CO2
+
               </div>
             </div>
             {/* <Timeline className={classes.timeline} align="alternate">

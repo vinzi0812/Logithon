@@ -27,6 +27,8 @@ import CheckTable from "views/admin/dataTables/components/CheckTable";
 import ColumnsTable from "views/admin/dataTables/components/ColumnsTable";
 import ComplexTable from "views/admin/dataTables/components/ComplexTable";
 import IconBox from "components/icons/IconBox";
+import axios from "axios";
+import { useState, useEffect } from "react";
 import SuggestionCard from "./components/SuggestionCard";
 import { useState, useEffect } from "react";
 import axios from "axios";
@@ -46,6 +48,7 @@ import RnD from "./components/RnD";
 
 
 export default function Settings() {
+
 
   const [routes, setRoutes] = useState([]);
   const [loading, setLoading] = useState(true);
@@ -87,7 +90,7 @@ export default function Settings() {
            />
         ))}
         </>
-        
+
       </SimpleGrid>
     </Box>
   );
